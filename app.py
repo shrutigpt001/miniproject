@@ -1,16 +1,31 @@
-"""QuizForge - Automatic MCQ Quiz Generator (PS 97) using a local Qwen 2.5 model via Ollama.
 
-Run with:  streamlit run app.py
+"""
+Edumind Ai - AI-Powered MCQ Learning Platform
+Powered by local Ollama models.
+Run with: streamlit run app.py
 """
 from __future__ import annotations
 
 import streamlit as st
 
-st.set_page_config(page_title="QuizForge - Local MCQ Generator", page_icon="🎓", layout="wide")
+st.set_page_config(
+    page_title="Edumind Ai | Smart Learning Platform",
+    page_icon="🧠",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
-from components.sidebar import render_sidebar  # noqa: E402  (after set_page_config)
-from components.styles import inject_css  # noqa: E402
-from pages import about, analytics, dashboard, generate_quiz, question_bank, settings, take_quiz  # noqa: E402
+from components.sidebar import render_sidebar
+from components.styles import inject_css
+from pages import (
+    about,
+    analytics,
+    dashboard,
+    generate_quiz,
+    question_bank,
+    settings,
+    take_quiz
+)
 
 PAGES = {
     "Dashboard": dashboard.render,
@@ -25,12 +40,18 @@ PAGES = {
 
 def main() -> None:
     inject_css()
+
     page = render_sidebar()
+
     try:
-        PAGES[page]()
-    except Exception as exc:  # last-resort guard: never show a raw traceback to the user
-        st.error(f"Something went wrong: {exc}")
-        st.exception(exc)
+        page_function = PAGES.get(page, dashboard.render)
+        page_function()
+
+    except Exception as exc:
+        st.error("Something went wrong while loading this page.")
+        with st.expander("Technical details"):
+            st.exception(exc)
 
 
-main()
+if __name__ == "__main__":
+    main()

@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 DB_PATH = Path(os.getenv("MCQ_DB_PATH", DATA_DIR / "quizzes.db"))
 
-APP_NAME = "QuizForge"
+APP_NAME = "Edumind Ai"
 DEFAULT_BASE_URL = "http://localhost:11434"
 DEFAULT_MODEL = "qwen2.5:3b"
 SUPPORTED_MODELS = ["qwen2.5:3b", "qwen2.5:7b", "qwen2.5:14b"]
