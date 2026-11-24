@@ -1,6 +1,6 @@
 <div align="center">
 
-# QuizForge
+# Edumind AI
 
 ### Automatic MCQ Quiz Generator powered by a local LLM
 
