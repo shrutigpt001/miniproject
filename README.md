@@ -43,7 +43,7 @@ Turn notes, PDFs and documents into validated multiple-choice quizzes - **entire
 
 ## Why this project
 Writing good practice questions by hand is slow, and sending study material to a cloud AI raises privacy and cost concerns.
-QuizForge keeps the whole pipeline local and treats the LLM as an **untrusted question writer**: the model proposes candidates, and ordinary deterministic code
+Edumind Ai keeps the whole pipeline local and treats the LLM as an **untrusted question writer**: the model proposes candidates, and ordinary deterministic code
 parses, validates, de-duplicates, stores, scores and analyses them. A human reviews the result before it is used.
 
 ## Features
@@ -51,7 +51,7 @@ parses, validates, de-duplicates, stores, scores and analyses them. A human revi
 | Area | What you get |
 |---|---|
 | **Input** | Paste text or upload **PDF / DOCX / TXT** (type and size validated, scans and corrupt files handled). Extracted text is shown for review before anything is generated. |
-| **Generation** | 5 / 10 / 15 / 20 or a custom number (up to 50) of questions; Easy / Medium / Hard / Mixed; 2-6 options; Conceptual / Factual / Application / Mixed styles; optional instructions. |
+| **Generation** | 5 / 10 / 15 / 20 or a custom number (up to 50) of questions; Easy /to Medium / Hard / Mixed; 2-6 options; Conceptual / Factual / Application / Mixed styles; optional instructions. |
 | **Live and stoppable** | Questions stream in one by one as soon as they pass validation. A **Stop** button keeps everything produced so far. |
 | **Model switch** | Flip between **Fast** (`qwen2.5:3b`, default) and **Quality** (`qwen2.5:7b`) on the Settings page, or with the Fast / Quality toggle on Generate Quiz. Models that are not installed cannot be selected and show the exact `ollama pull` command. |
 | **Reliability** | JSON-schema constrained output, safe parsing, a bounded repair loop (never infinite), source-grounding check and duplicate detection. |
